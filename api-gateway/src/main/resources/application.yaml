@@ -25,7 +25,17 @@ spring:
           uri: lb://employee-service
           predicates:
             - Path=/employee/**  #when we call api localhost:8060/employee/anything then it should redirect all traffic to employee-service
+          filters:
+            - AuthenticationFilter   #filter package's class from api-gateway
+
         - id: department-service
           uri: lb://department-service
           predicates:
             - Path=/department/**
+          filters:
+            - AuthenticationFilter
+
+        - id: security-service
+          uri: lb://security-service
+          predicates:
+            -path: /auth/**  #RequestMapping
