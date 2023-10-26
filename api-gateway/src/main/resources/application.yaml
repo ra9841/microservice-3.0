@@ -1,10 +1,10 @@
 server:
   port: 8060
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
 
 
 management:
@@ -38,4 +38,6 @@ spring:
         - id: security-service
           uri: lb://security-service
           predicates:
-            -path: /auth/**  #RequestMapping
+            - Path=/auth/**  #RequestMapping
+
+#debug: true

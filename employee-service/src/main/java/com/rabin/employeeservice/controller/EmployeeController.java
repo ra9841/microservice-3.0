@@ -21,7 +21,7 @@ public class EmployeeController {
       return  employeeService.registeringTheRecord(employeeDto);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<EmployeeDto> getAllRecord(){
       return  employeeService.getAllListOfRecord();
     }
